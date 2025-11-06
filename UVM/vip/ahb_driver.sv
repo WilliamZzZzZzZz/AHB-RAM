@@ -29,6 +29,7 @@ class ahb_driver #(type REQ = ahb_transaction, type RSP = REQ) extends uvm_drive
             seq_item_port.get_next_item(req);       //waiting the transaction coming
             `uvm_info(get_type_name(), "sequencer got next item", UVM_HIGH)
             drive_transaction(req);
+            //independent copy,line33~35
             void'($cast(rsp, req.clone()));
             rsp.set_sequence_id(req.get_sequence_id());
             rsp.set_transaction_id(req.get_transaction_id());

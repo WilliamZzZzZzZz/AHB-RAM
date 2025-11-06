@@ -1,0 +1,16 @@
+`ifndef AHBRAM_CONFIGURATION_SV
+`define AHBRAM_CONFIGURATION_SV
+
+class ahbram_configuration extends uvm_object;
+    ahb_agent_configuration ahb_cfg;
+    virtual ahbram_if vif;
+
+    `uvm_object_utils(ahbram_configuration)
+
+    function new(strinng name = "ahbram_configuration");
+        super.new(name);
+        ahb_cfg = ahb_agent_configuration::type_id::create("ahb_cfg");
+    endfunction 
+endclass
+
+`endif 
