@@ -2,6 +2,10 @@
 `define AHBRAM_CONFIGURATION_SV
 
 class ahbram_configuration extends uvm_object;
+
+    int seq_check_count;    
+    int seq_check_error;
+
     ahb_agent_configuration ahb_cfg;
     virtual ahbram_if vif;
 
