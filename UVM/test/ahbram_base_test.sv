@@ -11,8 +11,24 @@ virtual class ahbram_base_test extends uvm_test;
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        if(!uvm_config_db#(virtual ahbram_if))
+        if(!uvm_config_db#(virtual ahbram_if)::get(this, "", "vif", cfg.vif))
+            `uvm_fatal("GETCFG", "cannot get virtual interface from config db")
+        uvm_config_db#(ahbram_config)::set(this, "env", "cfg", cfg);
+
+        env = ahbram_env::type_id::create("env", this);
     endfunction
+
+    function void connect_phase(uvm_phase phase);
+        super.run_phase(phase);
+    endfunction
+
+    task run_phase(uvm_phase phase);
+        super.run_phase(phase);
+        //when all run phase over, wait 1us than enter next phase
+        //this setting could let monitor, coverage have enough time to collect full data
+        phase.phase_done.set_drain_time(this, 1us);
+    endtask
+    
 endclass
 
-`endif 
+`endif      
