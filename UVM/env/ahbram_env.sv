@@ -7,7 +7,7 @@ class ahbram_env extends uvm_env;
 
     `uvm_component_utils(ahbram_env)
 
-    function new(string name = "ahbram_env", uvm_componemnt parent);
+    function new(string name = "ahbram_env", uvm_component parent);
         super.new(name, parent);
     endfunction
 
