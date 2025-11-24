@@ -32,7 +32,7 @@ class ahbram_env extends uvm_env;
         super.connect_phase(phase);
         virt_sqr.ahb_mst_sqr = ahb_mst.sequencer;
         ahb_mst.monitor.item_observed_port.connect(predictor.bus_in);
-        ahb_mst.monitor.item_observed_port.connect(scb.ahb_trans_observed_imp)
+        ahb_mst.monitor.item_observed_port.connect(scb.ahb_trans_observed_imp);
     endfunction
 
     function void end_of_elaboration_phase(uvm_phase phase);

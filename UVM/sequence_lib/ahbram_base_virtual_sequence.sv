@@ -15,7 +15,7 @@ class ahbram_base_virtual_sequence extends uvm_sequence;
     `uvm_declare_p_sequencer(ahbram_virtual_sequencer)
 
     function new(string name = "ahbram_base_virtual_sequence");
-        super.name(name);
+        super.new(name);
     endfunction
 
     virtual task body();

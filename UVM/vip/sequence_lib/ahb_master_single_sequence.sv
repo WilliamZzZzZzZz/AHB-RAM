@@ -5,8 +5,8 @@
 //also means data size is 1
 class ahb_master_single_sequence extends ahb_base_sequence;
 
-    rand bit [AHB_MAX_ADDR_WIDTH - 1:0] addr;
-    rand bit [AHB_MAX_DATA_WIDTH - 1:0] data;
+    rand bit [`AHB_MAX_ADDR_WIDTH - 1:0] addr;
+    rand bit [`AHB_MAX_DATA_WIDTH - 1:0] data;
     rand xact_type_enum xact;
     rand burst_size_enum bsize;
 

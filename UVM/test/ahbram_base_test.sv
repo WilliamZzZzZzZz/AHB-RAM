@@ -19,7 +19,7 @@ virtual class ahbram_base_test extends uvm_test;
     endfunction
 
     function void connect_phase(uvm_phase phase);
-        super.run_phase(phase);
+        super.connect_phase(phase);
     endfunction
 
     task run_phase(uvm_phase phase);

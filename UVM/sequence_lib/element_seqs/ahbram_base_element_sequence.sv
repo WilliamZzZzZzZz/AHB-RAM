@@ -8,7 +8,7 @@ class ahbram_base_element_sequence extends uvm_sequence;
     bit[31:0] wr_val, rd_val;
     uvm_status_e status;
     `uvm_object_utils(ahbram_base_element_sequence)
-    `uvm_declare_p_sequencer(ahbram_base_element_sequence)
+    `uvm_declare_p_sequencer(ahbram_virtual_sequencer)
 
     function new(string name = "ahbram_base_element_sequence");
         super.new(name);
