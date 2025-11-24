@@ -5,7 +5,7 @@ class ahbram_smoke_test extends ahbram_base_test;
 
     `uvm_component_utils(ahbram_smoke_test)
 
-    function new(string name = "ahbram_smoke_test", uvm_componemnt parent);
+    function new(string name = "ahbram_smoke_test", uvm_component parent);
         super.new(name, parent);
     endfunction
 

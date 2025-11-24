@@ -36,8 +36,8 @@ class ahbram_base_virtual_sequence extends uvm_sequence;
             `uvm_error("CMP-ERROR", $sformatf("val1 'h%0x === val2 'h%0x", val1, val2))
     endfunction
  
-    task wait_reset_singal_released();
-        @(posedge vif.rstn)
+    task wait_reset_signal_released();
+        @(posedge vif.rstn);
     endtask
 
     task wait_cycles(int n);
@@ -45,7 +45,7 @@ class ahbram_base_virtual_sequence extends uvm_sequence;
     endtask
 
     task wait_ready_for_stim();
-        wait_reset_singal_released();
+        wait_reset_signal_released();
         wait_cycles(10);
     endtask
 

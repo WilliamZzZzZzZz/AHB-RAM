@@ -13,7 +13,7 @@ virtual class ahbram_base_test extends uvm_test;
         super.build_phase(phase);
         if(!uvm_config_db#(virtual ahbram_if)::get(this, "", "vif", cfg.vif))
             `uvm_fatal("GETCFG", "cannot get virtual interface from config db")
-        uvm_config_db#(ahbram_config)::set(this, "env", "cfg", cfg);
+        uvm_config_db#(ahbram_configuration)::set(this, "env", "cfg", cfg);
 
         env = ahbram_env::type_id::create("env", this);
     endfunction

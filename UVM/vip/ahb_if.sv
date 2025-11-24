@@ -3,7 +3,7 @@
 
 interface ahb_if;
   `include "ahb_defines.svh"
-  import lvc_ahb_pkg::*;
+  import ahb_pkg::*;
 
   logic                                   hclk;
   logic                                   hresetn;
@@ -42,21 +42,21 @@ interface ahb_if;
     // USER: Add clocking block detail
     default input #1ps output #1ps;
     output haddr, hburst, hbusreq, hlock, hprot, hsize, htrans, hwdata, hwrite; 
-    input hready, hgrant, hrdata;
+    input hready, hgrant, hrdata, hresp;
   endclocking : cb_mst
 
   clocking cb_slv @(posedge hclk);
    // USER: Add clocking block detail
     default input #1ps output #1ps;
     input haddr, hburst, hbusreq, hlock, hprot, hsize, htrans, hwdata, hwrite; 
-    output hready, hgrant, hrdata;
+    output hready, hgrant, hrdata, hresp;
   endclocking : cb_slv
 
   clocking cb_mon @(posedge hclk);
    // USER: Add clocking block detail
     default input #1ps output #1ps;
     input haddr, hburst, hbusreq, hlock, hprot, hsize, htrans, hwdata, hwrite; 
-    input hready, hgrant, hrdata;
+    input hready, hgrant, hrdata, hresp;
   endclocking : cb_mon
 
 endinterface

@@ -3,9 +3,11 @@
 
 class ahb_driver #(type REQ = ahb_transaction, type RSP = REQ) extends uvm_driver #(REQ, RSP);
     `uvm_component_utils(ahb_driver)
+    ahb_agent_configuration cfg;
+    virtual ahb_if vif;
 
-    function new(string name = "ahb_driver", uvm_parent parent = null);
-        super.new(name, parent)
+    function new(string name = "ahb_driver", uvm_component parent = null);
+        super.new(name, parent);
     endfunction
 
     function void build_phase(uvm_phase phase);

@@ -71,7 +71,7 @@ class ahb_master_driver extends ahb_driver;
                 break;
             end
             else
-                @(vif.cb_mst)
+                @(vif.cb_mst);
         end
 
         t.trans_type = NSEQ;
@@ -98,7 +98,7 @@ class ahb_master_driver extends ahb_driver;
                 break;
             end
             else
-                @(vif.cb_mst)
+                @(vif.cb_mst);
         end
         t.data = new[t.current_data_beat_num + 1](t.data);
         t.data[0] = vif.hrdata;
@@ -109,7 +109,7 @@ class ahb_master_driver extends ahb_driver;
     endtask
 
     virtual protected task do_init_idle(REQ t);
-        @(vif.cb_mst)
+        @(vif.cb_mst);
         _do_drive_idle();
     endtask
 

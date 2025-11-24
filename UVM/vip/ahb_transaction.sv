@@ -2,8 +2,6 @@
 `define AHB_TRANSACTION_SV
 
 class ahb_transaction extends uvm_sequence_item;
-    `uvm_object_utils_begin(ahb_transaction)
-    `uvm_object_utils_end
 
     rand bit [`AHB_MAX_DATA_WIDTH - 1:0]    data[];
     rand bit [`AHB_MAX_ADDR_WIDTH - 1:0]    addr = 0;
@@ -43,13 +41,13 @@ class ahb_transaction extends uvm_sequence_item;
     `uvm_object_utils_end
 
 
-    function new(string name = "ahb_transaction")
+    function new(string name = "ahb_transaction");
         super.new(name);
     endfunction
 
     //increase one size of data and all_beat_response,and copy all original data to the new one 
     function void increase_data(int n = 1);
-        data = new[data.size] (date);
+        data = new[data.size] (data);
         all_beat_response = new[all_beat_response.size + 1] (all_beat_response);
     endfunction
 endclass

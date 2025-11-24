@@ -1,7 +1,7 @@
 `ifndef AHB_SEQUENCER_SV
 `define AHB_SEQUENCER_SV
 
-class ahb_sequencer #(type REQ = ahb_transcation, type RSP = REQ) extends uvm_sequencer #(REQ,RSP);
+class ahb_sequencer #(type REQ = ahb_transaction, type RSP = REQ) extends uvm_sequencer #(REQ,RSP);
     `uvm_component_utils(ahb_sequencer)
 
     function new(string name = "ahb_sequencer", uvm_component parent = null);

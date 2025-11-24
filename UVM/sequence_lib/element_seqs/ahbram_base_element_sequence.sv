@@ -3,7 +3,7 @@
 
 class ahbram_base_element_sequence extends uvm_sequence;
 
-    ahbram_config cfg;
+    ahbram_configuration cfg;
     virtual ahbram_if vif;
     bit[31:0] wr_val, rd_val;
     uvm_status_e status;

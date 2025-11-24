@@ -4,6 +4,8 @@
 class ahb_monitor extends uvm_monitor;
     `uvm_component_utils(ahb_monitor)
 
+    ahb_agent_configuration cfg;
+    virtual ahb_if vif;
     uvm_analysis_port #(ahb_transaction) item_observed_port;
 
     function new(string name = "ahb_monitor", uvm_component parent = null);
@@ -43,7 +45,7 @@ class ahb_monitor extends uvm_monitor;
         t.burst_size = burst_size_enum'(vif.cb_mon.hsize);
         t.addr = vif.cb_mon.haddr;
         forever begin
-            monitor_vaild_data(t);
+            monitor_valid_data(t);
             if(t.trans_type == IDLE)
                 break;
         end

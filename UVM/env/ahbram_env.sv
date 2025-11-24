@@ -13,7 +13,6 @@ class ahbram_env extends uvm_env;
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        
     endfunction
 endclass
 

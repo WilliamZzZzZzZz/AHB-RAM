@@ -5,7 +5,7 @@ interface ahbram_if;
     logic clk;
     logic rstn;
 
-    intial begin
+    initial begin
         //wait 10 clock cycles to let DUT's status become stable
         assert_reset(10);
     end

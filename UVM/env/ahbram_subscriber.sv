@@ -12,7 +12,11 @@ class ahbram_subscriber extends uvm_component;
 
     `uvm_component_utils(ahbram_subscriber);
 
-    function new(string name = "ahbram_subscriber", uvm_component parent);
+    function new (string name = "ahbram_subscriber", uvm_component parent);
+        super.new(name, parent);
+    endfunction
+
+    function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         ahb_trans_observed_imp = new("ahb_trans_observed_imp", this);
         if(!uvm_config_db#(ahbram_configuration)::get(this,"", "cfg", cfg)) begin

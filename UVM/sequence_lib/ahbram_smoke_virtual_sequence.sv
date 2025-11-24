@@ -1,7 +1,7 @@
-`ifndef AHBRAM_SMOKE_VIRTUSL_SEQUENCE_SV
-`define AHBRAM_SMOKE_VIRTUSL_SEQUENCE_SV
+`ifndef AHBRAM_SMOKE_VIRTUAL_SEQUENCE_SV
+`define AHBRAM_SMOKE_VIRTUAL_SEQUENCE_SV
 
-class ahbram_smoke_virtual_sequence entends ahbram_base_virtual_sequence;
+class ahbram_smoke_virtual_sequence extends ahbram_base_virtual_sequence;
     `uvm_object_utils(ahbram_smoke_virtual_sequence)
 
     function new(string name = "ahbram_smoke_virtual_sequence");
@@ -9,8 +9,9 @@ class ahbram_smoke_virtual_sequence entends ahbram_base_virtual_sequence;
     endfunction
 
     virtual task body();
+        bit [31:0] addr, data;    
         super.body();
-        bit [31:0] addr, data;
+
         `uvm_info("body", "entering...", UVM_LOW)
         for(int i=0; i<10; i++) begin
             std::randomize(addr) with {addr[1:0] == 0; addr inside {['h1000:'h1FFF]};};
