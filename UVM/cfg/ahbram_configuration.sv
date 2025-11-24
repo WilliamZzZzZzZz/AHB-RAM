@@ -6,10 +6,13 @@ class ahbram_configuration extends uvm_object;
     int seq_check_count;    
     int seq_check_error;
 
+    int scb_check_count;
+    int scb_check_error;
+
     ahb_agent_configuration ahb_cfg;
     virtual ahbram_if vif;
 
-    `uvm_object_utils(ahbram_confi guration)
+    `uvm_object_utils(ahbram_configuration)
 
     function new(string name = "ahbram_configuration");
         super.new(name);
