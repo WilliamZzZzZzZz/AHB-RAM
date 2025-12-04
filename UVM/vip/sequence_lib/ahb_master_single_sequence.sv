@@ -27,6 +27,7 @@ class ahb_master_single_sequence extends ahb_base_sequence;
                             data.size() == 1;
                             data[0] == local::data;
                             burst_size == bsize;
+                            burst_type == SINGLE;
                             xact_type == xact;
                             })
         get_response(rsp);

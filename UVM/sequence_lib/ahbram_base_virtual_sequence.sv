@@ -31,9 +31,10 @@ class ahbram_base_virtual_sequence extends uvm_sequence;
         cfg.seq_check_count++;
         if(val1 === val2)
             `uvm_info("CMP-SUCCESS", $sformatf("val1 'h%0x === val2 'h%0x", val1, val2), UVM_LOW)
-        else
+        else begin
             cfg.seq_check_error++;
             `uvm_error("CMP-ERROR", $sformatf("val1 'h%0x === val2 'h%0x", val1, val2))
+        end
     endfunction
  
     task wait_reset_signal_released();

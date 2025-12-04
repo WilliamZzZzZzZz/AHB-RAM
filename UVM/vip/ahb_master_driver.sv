@@ -23,9 +23,14 @@ class ahb_master_driver extends ahb_driver;
     virtual task drive_transfer(REQ t);
         case(t.burst_type)
             SINGLE: begin do_atomic_trans(t);   end
-            //...
-            //...
-            default: begin `uvm_error("TYPE-ERROR", "this burst type not defined") end
+            INCR  : begin `uvm_error("TYPEERR", "burst type not supported yet") end
+            WRAP4 : begin `uvm_error("TYPEERR", "burst type not supported yet") end
+            INCR4 : begin `uvm_error("TYPEERR", "burst type not supported yet") end
+            WRAP8 : begin `uvm_error("TYPEERR", "burst type not supported yet") end
+            INCR8 : begin `uvm_error("TYPEERR", "burst type not supported yet") end
+            WRAP16: begin `uvm_error("TYPEERR", "burst type not supported yet") end
+            INCR16: begin `uvm_error("TYPEERR", "burst type not supported yet") end
+            default: begin `uvm_error("TYPEERR", "this burst type not defined") end
         endcase
     endtask
 

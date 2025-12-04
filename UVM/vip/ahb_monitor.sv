@@ -10,6 +10,7 @@ class ahb_monitor extends uvm_monitor;
 
     function new(string name = "ahb_monitor", uvm_component parent = null);
         super.new(name, parent);
+        item_observed_port = new("item_observed_port", this);
     endfunction
 
     function void build_phase(uvm_phase phase);
