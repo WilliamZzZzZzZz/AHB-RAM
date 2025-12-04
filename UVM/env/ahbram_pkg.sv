@@ -7,8 +7,11 @@ package ahbram_pkg;
     `include "uvm_macros.svh"
     import ahb_pkg::*;
 
+    `include "ahbram_reg.sv"
     `include "ahbram_configuration.sv"
+    `include "ahbram_reg_adapter.sv"
     `include "ahbram_subscriber.sv" 
+    `include "ahnram_cov.sv"
     `include "ahbram_scoreboard.sv"       
     `include "ahbram_virtual_sequencer.sv"    
     `include "ahbram_env.sv"

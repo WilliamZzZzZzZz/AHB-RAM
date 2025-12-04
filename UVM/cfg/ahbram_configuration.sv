@@ -11,6 +11,7 @@ class ahbram_configuration extends uvm_object;
 
     ahb_agent_configuration ahb_cfg;
     virtual ahbram_if vif;
+    ahbram_rgm rgm;
 
     `uvm_object_utils(ahbram_configuration)
 
