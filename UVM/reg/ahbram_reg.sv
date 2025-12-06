@@ -13,6 +13,8 @@ class ahbram_rgm extends uvm_reg_block;
 
     virtual function void build();
         map = create_map("map", 'h0, 4, UVM_LITTLE_ENDIAN);
+
+        lock_model();
     endfunction
 endclass
 

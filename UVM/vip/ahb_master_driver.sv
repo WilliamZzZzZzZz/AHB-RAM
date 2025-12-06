@@ -131,6 +131,7 @@ class ahb_master_driver extends ahb_driver;
     endtask
 
     virtual task do_proc_write(REQ t);
+        // do_init_idle(t);
     endtask
 
     virtual task do_proc_read(REQ t);

@@ -23,6 +23,7 @@ class ahb_monitor extends uvm_monitor;
 
     task run_phase(uvm_phase phase);
         super.run_phase(phase);
+        //using join_none to allow other processes to run in parallel
         fork
             monitor_transaction();
         join_none
@@ -39,7 +40,9 @@ class ahb_monitor extends uvm_monitor;
 
     task collect_transfer(output ahb_transaction t);
         t = ahb_transaction::type_id::create("t");
+        //NSEQ always means start of a new transfer, so wait for it
         @(vif.cb_mon iff vif.cb_mon.htrans == NSEQ);
+        //start collecting transaction info
         t.trans_type = trans_type_enum'(vif.cb_mon.htrans);
         t.xact_type  = xact_type_enum'(vif.cb_mon.hwrite);
         t.burst_type = burst_type_enum'(vif.cb_mon.hburst);

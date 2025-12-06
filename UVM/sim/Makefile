@@ -6,6 +6,7 @@ SEED     	= 1
 GUI      ?= 0
 COV      ?= 0
 DOTCL    ?= 1
+VERB     ?= UVM_HIGH
 OUT      ?= out
 TESTNAME ?= ahbram_smoke_test
 DFILES  	= ../../DUT/ahb_blockram_32.v
@@ -24,7 +25,7 @@ VCOMP_INC = +incdir+../../DUT \
 						+incdir+../{cfg,env,reg,cov,sequence_lib,sequence_lib/element_seqs,test} 
 VCOMP    = vlogan -full64 -ntb_opts uvm-1.2 -sverilog -timescale=1ps/1ps -nc -l $(OUT)/log/comp.log $(VCOMP_INC)
 ELAB     = vcs -full64 -ntb_opts uvm-1.2 -debug_acc+all -l $(OUT)/log/elab.log -sim_res=1ps -LDFLAGS -Wl,--no-as-needed
-RUN      = $(OUT)/obj/$(TB).simv -l run.log -sml +ntb_random_seed=$(SEED) +UVM_TESTNAME=$(TESTNAME) -cm_dir $(CM_DIR) -cm_name $(CM_NAME)
+RUN      = $(OUT)/obj/$(TB).simv -l run.log -sml +ntb_random_seed=$(SEED) +UVM_TESTNAME=$(TESTNAME) +UVM_VERBOSITY=$(VERB) -cm_dir $(CM_DIR) -cm_name $(CM_NAME)
 COV_OPTS = -full64 -dir $(CM_DIR)
 CM_DIR  ?= $(OUT)/cov.vdb
 CM_NAME ?= $(TESTNAME)_$(SEED)

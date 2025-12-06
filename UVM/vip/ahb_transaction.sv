@@ -47,8 +47,8 @@ class ahb_transaction extends uvm_sequence_item;
 
     //increase one size of data and all_beat_response,and copy all original data to the new one 
     function void increase_data(int n = 1);
-        data = new[data.size] (data);
-        all_beat_response = new[all_beat_response.size + 1] (all_beat_response);
+        data = new[data.size + n] (data);
+        all_beat_response = new[all_beat_response.size + n] (all_beat_response);
     endfunction
 endclass
 
