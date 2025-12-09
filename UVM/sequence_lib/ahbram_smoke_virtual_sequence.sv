@@ -14,6 +14,7 @@ class ahbram_smoke_virtual_sequence extends ahbram_base_virtual_sequence;
 
         `uvm_info("body", "entering...", UVM_LOW)
         for(int i=0; i<10; i++) begin
+            `uvm_info("debug-count", $sformatf("loop count: %0d", i), UVM_LOW)
             std::randomize(addr) with {addr[1:0] == 0; addr inside {['h1000:'h1FFF]};};
             //data = 0x00 0x11 0x22 0x33 0x44 0x55...
             std::randomize(data) with {data == (i << 4) +i;};

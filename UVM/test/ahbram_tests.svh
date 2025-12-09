@@ -3,5 +3,6 @@
 
 `include "ahbram_base_test.sv"
 `include "ahbram_smoke_test.sv"
+`include "ahbram_diff_hsize_test.sv"
 
 `endif 

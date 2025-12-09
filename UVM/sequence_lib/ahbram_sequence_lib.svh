@@ -4,5 +4,6 @@
 `include "ahbram_element_sequences.svh"
 `include "ahbram_base_virtual_sequence.sv"
 `include "ahbram_smoke_virtual_sequence.sv"
+`include "ahbram_diff_hsize_virtual_sequence.sv"
 
 `endif 

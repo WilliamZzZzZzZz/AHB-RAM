@@ -33,8 +33,8 @@ class ahbram_subscriber extends uvm_component;
     endtask
 
     virtual function void write(ahb_transaction tr);
-    //because of the imp defination, this class must have a function namee "write"
-    //this function is created to deal with the input data which from imp
+    //because of the imp defination, this class must have a function name "write"
+    //this function is created to deal with the input data from imp
     endfunction
 
     virtual task do_events_trigger();
