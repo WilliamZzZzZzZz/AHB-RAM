@@ -19,8 +19,11 @@ class ahbram_diff_hsize_virtual_sequence extends ahbram_base_virtual_sequence;
             std::randomize(wr_val) with {wr_val == (i << 8) + i;};
             std::randomize(bsize) with {bsize inside {BURST_SIZE_8BIT, BURST_SIZE_16BIT, BURST_SIZE_32BIT};};
             data = wr_val;
-            `uvm_do_with(single_write, {addr == local::addr; data == local::data; bsize == local::bsize;})
-            `uvm_do_with(single_read, {addr == local::addr; bsize == local::bsize;})
+            `uvm_do_with(single_write, {addr == local::addr; 
+                                        data == local::data;
+                                        bsize == local::bsize;})
+            `uvm_do_with(single_read,  {addr == local::addr; 
+                                        bsize == local::bsize;})
             rd_val = single_read.data;
             case (bsize)
                 BURST_SIZE_8BIT   : compare_data(wr_val & 32'hFF  , rd_val & 32'hFF);
