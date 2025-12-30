@@ -9,11 +9,11 @@ class ahbram_reset_w2r_virtual_sequence extends ahbram_base_virtual_sequence;
         super.new(name);
     endfunction
 
-    task body();
+    virtual task body();
+        bit [31:0] addr, data;
+        bit [31:0] addr_q[$];    
         super.body();
         `uvm_info("reset-body","Entered...", UVM_LOW)
-        bit [31:0] addr, data;
-        bit [31:0] addr_q[$];
 
         //before reset, write 10 random data with random address, do normal compare
         for(int i=0; i<10; i++) begin
