@@ -10,8 +10,10 @@ class ahbram_reset_w2r_virtual_sequence extends ahbram_base_virtual_sequence;
     endfunction
 
     virtual task body();
-        bit [31:0] addr, data;
-        bit [31:0] addr_q[$];    
+        bit [31:0] addr, data,data1;
+        bit [31:0] addr_q[$];
+        bit [31:0] data_q[$];
+
         super.body();
         `uvm_info("reset-body","Entered...", UVM_LOW)
 
@@ -21,6 +23,7 @@ class ahbram_reset_w2r_virtual_sequence extends ahbram_base_virtual_sequence;
             std::randomize(wr_val) with {wr_val == (i << 4) + i;};
             data = wr_val;
             addr_q.push_back(addr);
+            data_q.push_back(data);
             `uvm_do_with(single_write, {addr == local::addr;
                                         data == local::data;})
             `uvm_do_with(single_read, {addr  == local::addr;})
@@ -34,8 +37,11 @@ class ahbram_reset_w2r_virtual_sequence extends ahbram_base_virtual_sequence;
         //after reset, read back the previous addresses, compare with init logic
         do begin
             addr = addr_q.pop_front();
+            data1 = data_q.pop_front();
             `uvm_do_with(single_read, {addr == local::addr;})
             rd_val = single_read.data;
+
+            compare_data(data1, rd_val);
             if(cfg.init_logic === 1'b0)
                 compare_data(32'h0, rd_val);
             else if(cfg.init_logic === 1'bx)
