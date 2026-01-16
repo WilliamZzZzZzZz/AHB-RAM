@@ -15,7 +15,7 @@ class ahbram_cov extends ahbram_subscriber;
         }
         BYTEACC: coverpoint addr[1:0] {
             bins addr_byte_acc_b01  = {2'b01};
-            bins addr_byte_acc_b01  = {2'b11};
+            bins addr_byte_acc_b11  = {2'b11};
             bins addr_halfw_acc_b10 = {2'b10};
             bins addr_word_acc_b00  = {2'b00};
         }
