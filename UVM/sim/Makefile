@@ -8,7 +8,8 @@ COV      ?= 0
 DOTCL    ?= 1
 VERB     ?= UVM_HIGH
 OUT      ?= out
-TESTNAME ?= ahbram_smoke_test
+# TESTNAME ?= ahbram_smoke_test
+TESTNAME ?= ahbram_htrans_test
 DFILES  	= ../../DUT/ahb_blockram_32.v
 VFILES   +=  ../vip/ahb_pkg.sv \
 						 ../vip/ahb_if.sv \

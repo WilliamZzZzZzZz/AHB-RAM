@@ -12,7 +12,7 @@ class ahbram_htrans_read_sequence extends ahbram_base_element_sequence;
 
     constraint htrans_read_cstr {
         soft addr[1:0]  == 0;
-        soft hsize[1:0] == 2'b01;
+        soft htrans[1:0] == 2'b10;
         soft bsize == BURST_SIZE_32BIT;
     }
 
@@ -23,7 +23,7 @@ class ahbram_htrans_read_sequence extends ahbram_base_element_sequence;
     virtual task body();
         ahb_master_single_sequence ahb_single;
         `uvm_info("htrans-body", "ENTER_HTRANS_BODY...", UVM_LOW)
-        `uvm_do_with(ahb_single, p_sequencer.ahb_mst_sqr,{
+        `uvm_do_on_with(ahb_single, p_sequencer.ahb_mst_sqr,{
                                                         addr == local::addr;
                                                         xact == READ;
                                                         bsize == local::bsize;
