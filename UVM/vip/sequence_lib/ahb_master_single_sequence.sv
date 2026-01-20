@@ -10,8 +10,14 @@ class ahb_master_single_sequence extends ahb_base_sequence;
     rand xact_type_enum xact;
     rand burst_size_enum bsize;
 
+    rand bit [1:0] htrans;
+
     constraint single_trans_cstr {
         xact inside {READ, WRITE};
+    }
+
+    constraint htrans_default_cstr{
+        soft htrans == 2'b10;
     }
 
     `uvm_object_utils(ahb_master_single_sequence)
@@ -29,6 +35,7 @@ class ahb_master_single_sequence extends ahb_base_sequence;
                             burst_size == bsize;
                             burst_type == SINGLE;
                             xact_type == xact;
+                            trans_type == local::htrans;
                             })
         get_response(rsp);
 

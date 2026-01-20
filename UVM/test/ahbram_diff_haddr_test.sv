@@ -5,7 +5,7 @@ class ahbram_diff_haddr_test extends ahbram_base_test;
 
     `uvm_component_utils(ahbram_diff_haddr_test)
     
-    function new (string name = "ahbram_diff_haddr_test", uvm_component parent);
+    function new(string name = "ahbram_diff_haddr_test", uvm_component parent);
         super.new(name, parent);
     endfunction
 

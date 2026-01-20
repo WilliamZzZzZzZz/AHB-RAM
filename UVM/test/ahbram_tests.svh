@@ -7,5 +7,7 @@
 `include "ahbram_diff_haddr_test.sv"
 `include "ahbram_reset_w2r_test.sv"
 `include "ahbram_haddr_word_unaligned_test.sv"
+`include "ahbram_htrans_test.sv"
+ 
 
 `endif 

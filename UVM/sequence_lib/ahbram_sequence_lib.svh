@@ -8,5 +8,6 @@
 `include "ahbram_diff_haddr_virtual_sequence.sv"
 `include "ahbram_reset_w2r_virtual_sequence.sv"
 `include "ahbram_haddr_word_unaligned_virtual_sequence.sv"
+`include "ahbram_htrans_virtual_sequence.sv"
 
 `endif 
